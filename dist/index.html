@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Roaster</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <input type="text" id="teamInput" placeholder="Which team?" />
+    <button onclick=getRoster() id="button">Get Roster</button>
+    <div class="roster-container"></div>
+    <script id="roster-template" type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="roster">
+                <div>{{this.firstName}} {{this.lastName}}</div>
+                <div>{{this.jersey}}</div>
+                <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}" alt="">
+                <div>{{this.pos}}</div>
+            </div>
+        {{/each}}
+    </script>
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
